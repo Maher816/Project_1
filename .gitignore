@@ -1,2 +1,6 @@
 node_modules
 .env
+UrukCrypto.ejs
+test.ejs
+temp_users
+modules
