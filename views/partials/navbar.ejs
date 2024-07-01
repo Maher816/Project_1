@@ -1,0 +1,15 @@
+<h1>My Project - <%= page %></h1>
+<hr />
+  <a href="/"><%- (page=="/") ? '<strong>Home</strong>' : 'Home' %></a> |
+  <a href="/about"><%- (page=="/about") ? '<strong>About</strong>' : 'About' %></a> |
+  <a href="/user"><%- (page=="/user") ? '<strong>User</strong>' : 'User' %></a> |
+  
+  <%if(data) { %>
+    <a href="/logout">Logout</a>
+    <% } else { %>
+      <a href="/login">Login</a>
+      /
+      <a href="/register">Create an account</a>
+    <% } %>
+<hr />
+<br />

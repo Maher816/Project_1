@@ -1,0 +1,47 @@
+<!--<body style="background-color: darkgrey;"></body>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--uses the navbar from partials folder-->
+    <link rel="stylesheet" href="/css/main.css" />
+    <%- include('partials/navbar', {page: '/user'}) %>
+    <!--tab title-->
+    <title>user</title>
+</head>
+
+<body>
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+        <div class="hero-content text-center ">
+            <div class="max-w-md">
+                <h1 class="text-5xl font bold">Profile Page</h1>
+            </div>
+        </div>
+        
+   
+  
+    </div>
+
+
+    <body>
+        <div>
+            
+                <%if(data) { %>
+                    <td> Greetings <%= data.name %></td>
+                    
+                    <%= data.id %>
+                    <%if(data.isPrivate == 1) {%>
+                        <td>Private</td>
+                    <%}%>
+                <%}%>
+                
+
+        </div>
+    </body>
+
+</body>
+
+</html>

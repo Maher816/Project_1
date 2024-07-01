@@ -1,0 +1,86 @@
+<!--<body style="background-color: darkgrey;"></body>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--uses the navbar from partials folder-->
+    <link rel="stylesheet" href="/css/main.css" />
+    <%- include('partials/navbar', {page: '/'}) %>
+    <!--tab title-->
+    <title>Home</title>
+</head>
+    <!--image
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <img src="https://www.senecapolytechnic.ca/content/dam/projects/seneca/seneca-logo.svg" 
+        width="400"
+        height="200"
+        alt="site banner" />
+        
+      </head>
+-->
+
+<body tabindex="-1"><!--where everything resides in-->
+
+    <div class="container mx-auto p-4">
+    <div class="hero bg-base-200 rounded-lg p-6"> <!--big bar-->
+        <div class="hero-content text-center ">
+            <div class="max-w-md">
+                <h1 class="text-5xl font bold">Greetings!</h1>
+            </div>
+        </div>
+        
+    <!--this here runs if the user is logged in WIP-->
+    <%if(data) { %>
+        <td> Greetings <%= data.name %></td>
+        <% } else { %>
+        <td> Greetings guest </td>
+        <% } %>
+    </div> <!--big bar-->
+</div>
+
+    <body> <!--main content-->
+<div>
+
+    
+            
+    
+            <div class="w-[150px] h-[80px] shadow-2xl bg-white rounded-lg flex justify-center items-center">
+                <p class="text-center">shadow-2xl</p>
+            </div>
+        
+            <div class="w-[150px] h-[80px] shadow-2xl bg-blue-800 text-white rounded-lg flex justify-center items-center">
+                <p class="text-center">shadow-2xl</p>
+              </div>
+        
+              <button class="btn btn-primary">Button</button>
+
+    
+</div>
+
+
+
+
+
+    </body> <!--main content-->
+
+
+<!--
+    <h2>Hello</h2>
+
+    <div class="w-[150px] h-[80px] shadow-2xl bg-white rounded-lg flex justify-center items-center">
+        <p class="text-center">shadow-2xl</p>
+    </div>
+
+    <div class="w-[150px] h-[80px] shadow-2xl bg-blue-800 text-white rounded-lg flex justify-center items-center">
+        <p class="text-center">shadow-2xl</p>
+      </div>
+
+      <button class="btn btn-primary">Button</button>
+    -->
+</body><!--where everything resides in-->
+
+</html>
