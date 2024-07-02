@@ -19,6 +19,7 @@ const app = express();
 const HTTP_PORT = process.env.PORT || 2001;
 app.use(express.static('public'));
 app.set('views', __dirname + '/views'); //for vercel
+app.use(express.static(__dirname + '/public')); //also for vercel
 app.set('view engine', 'ejs');
 
 
