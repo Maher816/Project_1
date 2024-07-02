@@ -11,7 +11,7 @@ const Schema = mongoose.Schema
 //const path = require('path'); //doesn't seem to be needed
 //const { render } = require('ejs');
 
-const userData = require("./modules/users");
+// const userData = require("./modules/users");
 const express = require('express');
 const app = express();
 //note for tailwind css stuff use
@@ -260,6 +260,6 @@ app.use((req, res, next) => {
     //would diplay 'logout' or 'login / create an account'
   });
 
-userData.initialize().then(() =>{
+// userData.initialize().then(() =>{
 app.listen(HTTP_PORT, () => { console.log(`server listening on: ${HTTP_PORT}`) })
-});
+// });
