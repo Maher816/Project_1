@@ -1,0 +1,70 @@
+using javascript, html, tailwind and some other frameworks if needed, a database (maybe 2) and python
+
+create a website using the jscript I learned from seneca and catch up on the remaining recordings needed
+
+create a game from the 100 days python tutorial
+
+
+
+
+with jscript create a website about the games from python,
+have some cool effects to learn more??
+make the page look nice and appropriate
+	add main page, done
+	login page, 
+	create account page,
+	a code that redirects a user if not logged in,
+	smth for the game player if needed, use blackjack
+	add a leader board so users can compete (this will need the database)
+
+	a way for jscript to communicate with python to recieve player points (if the game does track points)
+	may need to create that myself
+
+with python
+	create a game,
+	I have blackjack to use
+
+	find out how to make it multiplayer (optional),
+	,
+
+html
+	create an appealing page i gues :p
+	account page
+	idk for this honestly
+
+database
+	when user creates an account, their info (username and password) will be created and stored in here,
+	when user inputs their info (username and password) a code must check if the given username and 
+	password match the stored username and it's respective password if one or both are incorrect refuse 
+	login attempt,
+	should also be used to store points the user earned and must be displayed on the leader board for other
+	users to see
+
+
+what is needed
+	a home page greeting the user
+		in the home page, it should prompt the user to either create or login if it detects that the user is not logged in.
+		when the user is logged in have the page display different data, basically greetings <username>
+		and have the python player visible if possible
+
+	an about page talking about it's creator (me) and some other related things
+
+	a profile page that displays the relavent info for each respective user
+		a delete account button.
+	
+	a page that shows every other existing user
+		also allows you to search for specific users by username
+
+	a page denying access if user is not logged in
+		probably needs await and then catch blocks
+
+user and users
+	will need to change stuff in user
+	users will display the existing user in non json format
+	each user will have a link you can click to view their profile
+		if a user has their private value to 1 (True) their info is hi
+
+
+<!-- <%- include('partials/audioLoop') %> <!- Background music "Sneaky Snitch" by Kevin MacLeod -->
+
+take inspiration from the pepe coin site and how it's animations work

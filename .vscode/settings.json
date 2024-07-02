@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./python_folder/python_art_folder"
+    ]
+}
