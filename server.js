@@ -18,7 +18,7 @@ const app = express();
 //npm run tw:build
 const HTTP_PORT = process.env.PORT || 2001;
 app.use(express.static('public'));
-app.set('views', path.join(__dirname, 'views')); //for vercel
+app.set('views', __dirname + '/views'); //for vercel
 app.set('view engine', 'ejs');
 
 
