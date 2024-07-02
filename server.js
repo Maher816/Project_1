@@ -10,7 +10,7 @@ const Schema = mongoose.Schema
 //const { set } = require("mongoose");  //doesn't seem to be needed
 //const path = require('path'); //doesn't seem to be needed
 //const { render } = require('ejs');
-
+const path = require('path');
 // const userData = require("./modules/users");
 const express = require('express');
 const app = express();
@@ -18,6 +18,7 @@ const app = express();
 //npm run tw:build
 const HTTP_PORT = process.env.PORT || 2001;
 app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views')); //for vercel
 app.set('view engine', 'ejs');
 
 

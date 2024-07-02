@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch server.js",
     "tw:build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css --watch",
-    "build-css": "sass --no-source-map --watch scss:public/css"
+    "build-css": "sass --no-source-map --watch scss:public/css",
+    "build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
