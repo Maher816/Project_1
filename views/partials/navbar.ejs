@@ -1,10 +1,28 @@
-<h1>My Project - <%= page %></h1>
-<hr />
+<h1>My Project - 
+  <%if(userDatas) { %>
+    <%- userDatas.name %>
+  <% } else { %>
+    guest
+  <% } %>
+</h1>
+
+<!-- <hr /> -->
   <a href="/"><%- (page=="/") ? '<strong>Home</strong>' : 'Home' %></a> |
   <a href="/about"><%- (page=="/about") ? '<strong>About</strong>' : 'About' %></a> |
   <a href="/user"><%- (page=="/user") ? '<strong>User</strong>' : 'User' %></a> |
+
+<!--
+created 'userDatas' variable to avoid an issue with the user list block display
+the name would not get displayed and guest users were able to see the logout button, which should be impossible
+-->
+
+  <!--displays the current logged user, or just 'guest'-->
   
-  <%if(data) { %>
+
+  <!--if user is logged in display 'logout', else display 'login' and 'register'-->
+  <!--note if the guest is somehow able to click 'logout', despite not supposed to appear unless logged in the guest will
+  be redirected to the login page -->
+  <%if(userDatas) { %>
     <a href="/logout">Logout</a>
     <% } else { %>
       <a href="/login">Login</a>

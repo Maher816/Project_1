@@ -1,3 +1,4 @@
+<!-- This displays the list of existing users -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -36,10 +37,10 @@
         <!-- head -->
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Id</th>
-            <th>View page</th>
+            <th>Username</th>
             <th>Email</th>
+            <th>View page(coming soon)</th>
+            <th>PLACEHOLDER</th>
           </tr>
         </thead>
 <!--the data or user in the parentheses doesn't matter how its named-->
@@ -48,6 +49,7 @@
             <tr>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
+              <td><a href="/user/<%=user._id%>">view</a></td>
             </tr>
           <% }) %>
 

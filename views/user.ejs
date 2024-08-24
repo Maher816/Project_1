@@ -1,4 +1,5 @@
 <!--<body style="background-color: darkgrey;"></body>-->
+<!-- This displays the user's personal page -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,16 @@
     <div class="hero bg-base-200 rounded-lg p-6">
         <div class="hero-content text-center ">
             <div class="max-w-md">
-                <h1 class="text-5xl font bold">Profile Page</h1>
+                <h1 class="text-5xl font bold">
+                    <%if(data) { %>
+                        <td> <%= data.name %></td>
+                        
+                        <%= data.id %>
+                        <%if(data.isPrivate == 1) {%>
+                            <td>Private</td>
+                        <%}%>
+                    <%}%>
+                </h1>
             </div>
         </div>
         
@@ -30,7 +40,7 @@
         <div>
             
                 <%if(data) { %>
-                    <td> Greetings <%= data.name %></td>
+                    <td> User <%= data.name %></td>
                     
                     <%= data.id %>
                     <%if(data.isPrivate == 1) {%>

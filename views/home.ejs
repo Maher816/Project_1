@@ -35,9 +35,9 @@
         
     <!--this here runs if the user is logged in WIP-->
     <%if(data) { %>
-        <td> Greetings <%= data.name %></td>
+        <td> Hello <%= data.name %></td>
         <% } else { %>
-        <td> Greetings guest </td>
+        <td> Hello guest </td>
         <% } %>
     </div> <!--big bar-->
 </div>
@@ -48,15 +48,7 @@
     
             
     
-            <div class="w-[150px] h-[80px] shadow-2xl bg-white rounded-lg flex justify-center items-center">
-                <p class="text-center">shadow-2xl</p>
-            </div>
-        
-            <div class="w-[150px] h-[80px] shadow-2xl bg-blue-800 text-white rounded-lg flex justify-center items-center">
-                <p class="text-center">shadow-2xl</p>
-              </div>
-        
-              <button class="btn btn-primary">Button</button>
+
 
     
 </div>
@@ -83,4 +75,6 @@
     -->
 </body><!--where everything resides in-->
 
+
+<%- include('partials/copyright_footer') %>
 </html>
