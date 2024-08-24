@@ -10,9 +10,11 @@ const Schema = mongoose.Schema
 //const { set } = require("mongoose");  //doesn't seem to be needed
 //const path = require('path'); //doesn't seem to be needed
 //const { render } = require('ejs');
+// const Calender = require('fullcalendar')
 const path = require('path');
 // const userData = require("./modules/users");
 const express = require('express');
+// const { stringify } = require("querystring");
 const app = express();
 //note for tailwind css stuff use
 //npm run tw:build
@@ -60,6 +62,7 @@ app.get("/register", (req, res) => {
 //make register.ejs
 
 app.post("/register", async (req, res) => {
+  //checks if email is already in use
   const existingUser = await User.findOne({ email: req.body.email})
   if(existingUser){
     return res.render("register", { error: "Email is already in use!" });
@@ -125,20 +128,38 @@ app.get("/dashboard", ensureLogin, (req, res) => {
   // LOGOUT
   app.get("/logout", ensureLogin, (req, res) => {
     req.session.reset();
-    //res.redirect("/login");
     res.redirect("/");
   });
 
 
 ////read on everything done for mongodb so I can understand how each line works
 
+let appointmentSchema = new Schema({})
+
 //navbar dynamic login/logout/register buttons
 app.get((req,res) => {
   res.render("/partials/navbar", {data: req.session.user});
 })
 
+// middleware for the footer data, NOTE: this block must be above the routes that use it so it functions 
+app.use((req, res, next) => {
+  res.locals.year = new Date().getFullYear();   // defines 'year' to store the current year
+  next();
+});
+
+// this is used to display the current logged in user no matter what the data is
+app.use((req, res, next) => {
+  res.locals.userDatas = req.session.user   // defines 'user' and their value to store in userDatas
+  next();
+});
+// this was used to solve an issue with the /user block
+
 app.get('/', (req,res) => {
-  res.render("home", { data: req.session.user });
+  // let currentYear = new Date().getFullYear();
+  res.render("home", { 
+    data: req.session.user,
+   });
+  
   /*  
   let user = [
         {
@@ -168,7 +189,7 @@ app.get('/urukcity', (req,res) => {
 
 
 //open a list of all existing users
-app.get('/user', ensureLogin, async(req,res) => { //may remove the ensureLogin here
+app.get('/user',  async(req,res) => { //may remove the ensureLogin here
  
     try{
         //let set = await userData.getAllUsers();
@@ -176,8 +197,8 @@ app.get('/user', ensureLogin, async(req,res) => { //may remove the ensureLogin h
         let users = await User.find({})
 
         res.render("users",{
-            data:users,
-        })
+            data:users, // this takes another value which replaces the req.session.user value 
+        })              // caused an issue when displaying the current logged user in navbar, but is now fixed
         //sends data of object user to user.ejs
         //res.render("user",{set:set});   //"user" is the user.ejs file use <% %> stuff for this
     }catch(err){
@@ -228,18 +249,18 @@ app.get('/user',async(req,res) => {
 // })
 
 
-
-//this block is responsible for displaying user info in their own pages
+/**/
+//this block is responsible for displaying user info in their own pages using their $oid
 app.get('/user/:id',ensureLogin, async(req,res) =>{
     //userData.getUserByID(req.params.id)
     try{
         //let set = await userData.getUserByID(req.params.num);
         //object copies the data if they exist
         let set = await User.findById(req.params.id);   //wot is params vs session
-        //console.log(set)
+        // console.log(set)
         let user = {
-            // name: set.username,
             name: set.name,
+            // id: set._id
             // isPrivate: set.private,
         }
         //with data found, object copies the username 
@@ -254,6 +275,13 @@ app.get('/user/:id',ensureLogin, async(req,res) =>{
     }
 })
 
+
+
+
+app.get('/setdate', ensureLogin, async(req,res)=>{
+  
+  res.render("appointment_creator")
+}) 
 
 //if user searches a page that doesn't exist
 app.use((req, res, next) => {
