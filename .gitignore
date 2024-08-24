@@ -11,4 +11,8 @@ public/images/copilot_prompt_8_uruk_temple_3.jpg
 ember
 Legal_folder
 Legal_folder.ejs
-views/dashboard.ejs
+dashboard.ejs
+hello.py
+number_game.js
+templates
+python_files/*
