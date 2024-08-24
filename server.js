@@ -121,9 +121,9 @@ app.get("/login", (req, res) => {
 
 
   // DASHBOARD
-app.get("/dashboard", ensureLogin, (req, res) => {
-    res.render("dashboard", { data: req.session.user });
-  });//the propety name (data) here has to match the property name in the dashboard.ejs
+// app.get("/dashboard", ensureLogin, (req, res) => {
+//     res.render("dashboard", { data: req.session.user });
+//   });//the propety name (data) here has to match the property name in the dashboard.ejs
   
   // LOGOUT
   app.get("/logout", ensureLogin, (req, res) => {
@@ -183,9 +183,9 @@ app.get('/image', (req,res) => {
     res.render('test')
 });
 
-app.get('/urukcity', (req,res) => {
-    res.render('UrukCrypto', { data: req.session.user })
-});
+// app.get('/urukcity', (req,res) => {
+//     res.render('UrukCrypto', { data: req.session.user })
+// });
 
 
 //open a list of all existing users
