@@ -177,6 +177,7 @@ app.get('/', (req,res) => {
 
 app.get('/about', (req,res) => {
     res.render('about', { data: req.session.user })
+    // res.sendFile(path.join(__dirname, '/views/about.html'));
 });
 
 app.get('/image', (req,res) => {

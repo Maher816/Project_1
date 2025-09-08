@@ -1,3 +1,5 @@
+# NOTE: to ignore folders and files that are already in the git repo, you'll need to remove/delete it from the repo
+#       for the ignore to work
 node_modules
 .env
 
@@ -5,17 +7,26 @@ UrukCrypto.ejs
 test.ejs
 audioLoop.ejs
 
+.vscode
+
+# these 3 are old data, that I don't really need
 temp_users
 modules
 pgdatabase.js
+
+
 public/images/copilot_prompt_8_uruk_temple_1.jpg
 public/images/copilot_prompt_8_uruk_temple_3.jpg
 .vercel
-ember
+
+
 Legal_folder
-Legal_folder.ejs
 hello.py
 number_game.js
 templates
-python_files
-views/*
+# public/music/Sneaky_Snitch.mp3
+
+file_to_ignore.ejs
+another_file_to_ignore.ejs
+#I think this json is needed
+# vercel.json
